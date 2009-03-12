@@ -3,7 +3,10 @@ well19937.validate <- function()
 	result <- function(x) {
 		if (x) { "OK" } else { "FAILED" }
 	}
-	RNGkind("user")
+	if (RNGkind(NULL)[1] != "user-supplied") {
+		cat("Restoring user-supplied generator\n")
+		RNGkind("user-supplied")
+	}
 	# SFMT 32
 	set.initialization("sfmt")
 	set.resolution(32)
