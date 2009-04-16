@@ -27,7 +27,7 @@ set.initialization <- function(initialization)
 			as.integer(initialization == "mrg32k5a"),
 			PACKAGE="rngwell19937")
 	} else {
-		cat("supported resolutions are \"mrg32k5a\" and \"sfmt\" bits\n")
+		cat("supported initializations are \"mrg32k5a\" and \"sfmt\"\n")
 	}
 }
 

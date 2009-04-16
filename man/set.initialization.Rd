@@ -1,6 +1,11 @@
 \name{set.initialization}
 \alias{set.initialization}
-\title{Set initialization algorithm for the function set.seed}
+\title{Set initialization algorithm}
+
+\description{
+  The function allows to specify the initialization algorithm used by the
+  function \code{set.seed()}.
+}
 
 \usage{
   set.initialization(initialization)
@@ -11,8 +16,7 @@
   be "mrg32k5a" or "sfmt".}
 }
 
-\description{
-  The change of the initialization algorithm applies to the next calls of \code{set.seed}.
+\details{
   Initialization "mrg32k5a" uses the generator MRG32k5a by P. L'Ecuyer, see
   the citation below.
   Initialization "sfmt" is the same as in SFMT generator by M. Matsumoto.

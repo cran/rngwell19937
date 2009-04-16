@@ -11,6 +11,12 @@
   well19937.validate()
 }
 
+\details{
+  Loading the package \code{rngwell19937} sets \code{RNGkind("user-supplied")}.
+  If this setting is changed by the user before calling \code{well19937.validate()},
+  the function resets \code{RNGkind("user-supplied")}.
+}
+
 \value{
   The function prints the result of the test. There is no output value.
 }
