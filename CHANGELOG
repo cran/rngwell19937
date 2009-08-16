@@ -1,4 +1,7 @@
+2009-08-16  0.5-3  extended DESCRIPTION file
+                   corrected ?set.vector.seed
+                   code cleaning
 2009-04-16  0.5-2  corrected error message in set.initialization() thanks to Jakub Dvorak
                    extended documentation
-2009-03-12  0.5-1  add test of current RNGkind() to the validation function
+2009-03-12  0.5-1  add test of the current RNGkind() to the validation function
 2009-03-05  0.5-0  initial CRAN submission

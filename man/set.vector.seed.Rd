@@ -17,8 +17,8 @@
 }
 
 \details{
-  A call of \code{set.vector.seed} implies setting the \code{"mrg32k5a"}
-  initialization as a side effect.
+  Function \code{set.vector.seed()} generalizes the initialization
+  \code{"mrg32k5a"} for longer seeds.
 
   The input numbers should have integer values in the interval
   \code{[0, 2^32 - 1]}. They may be represented by numeric data type
@@ -29,6 +29,11 @@
   \code{set.vector.seed(seed)} and \code{set.seed(seed)} are equivalent.
   If \code{seed} has length 1 and \code{2^31 + 1 <= seed <= 2^32 - 1}, then
   \code{set.vector.seed(seed)} and \code{set.seed(seed - 2^32)} are equivalent.
+
+  It may be proved that every two different input sequences of length at most 3
+  produce different initial states of WELL19937a. There is no need to care about
+  a sufficiently random bit pattern of the seed. In particular, the seeds
+  0, 1, or 2 are not worse than any other seed and produce unrelated sequences.
 }
 
 \value{

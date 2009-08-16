@@ -17,25 +17,27 @@ unsigned int *rstate_i = random_seed;  // used in WELLRNG19937a()
 unsigned int *STATE = random_seed+1;   // used in WELLRNG19937a()
 unsigned int check_state_i;  // detect user modification of .Random.seed
 
-#define eps1 1.1641532182693481445e-10
-#define eps2 5.5511151231257827021e-17
+#define bin32m 2.3283064365386962891e-10 // 2^(-32)
+#define bin33m 1.1641532182693481445e-10 // 2^(-33)
+#define bin53m 1.1102230246251565404e-16 // 2^(-53)
+#define bin54m 5.5511151231257827021e-17 // 2^(-54)
 
 double x;
 
 void get_rand_32(void)
 {
-	x = WELLRNG19937a()*(1/4294967296.0);
+	x = WELLRNG19937a() * bin32m;
 	if (x == 0) {
-		x = eps1;
+		x = bin33m;
 	}
 }
 
 void get_rand_53(void)
 {
 	x = (double) (WELLRNG19937a() >> 6);
-	x = (134217728.0 * x + (double) (WELLRNG19937a() >> 5))*(1/9007199254740992.0);
+	x = (134217728.0 * x + (double) (WELLRNG19937a() >> 5)) * bin53m;
 	if (x == 0) {
-		x = eps2;
+		x = bin54m;
 	}
 }
 
@@ -102,8 +104,6 @@ void init_vector_mrg32k5a(int *n, double *seed, unsigned int *iseed, unsigned in
 		iseed[i] = (unsigned int) seed[i];
 	}
 	init_mrg32k5a(*n, iseed);
-	if (seedlength[0] != 625)
-		Rprintf("INTERNAL ERROR seedlength[0] = %d\n",seedlength[0]);
 	for (i=0; i < 625; i++) {
 		state[i] = random_seed[i];
 	}
@@ -111,14 +111,13 @@ void init_vector_mrg32k5a(int *n, double *seed, unsigned int *iseed, unsigned in
 
 void user_unif_init_mrg32k5a(unsigned int seed)
 {
-	seed = 3602842457U * seed + 105890386U; // undo initial scrambling
 	init_mrg32k5a(1, &seed);
 }
 
 void user_unif_init_sfmt(unsigned int seed)
 {
-	int i,j;
-	STATE[0] = 3602842457U * seed + 105890386U; // undo initial scrambling
+	int i;
+	STATE[0] = seed;
 	for (i = 1; i < R19937a; i++) 
 		STATE[i] = 1812433253UL * ( STATE[i - 1] ^ ( STATE[i - 1] >> 30 ) ) + i;
 	InitWELLRNG19937a();
@@ -137,6 +136,7 @@ void set_initialization(int *initialization)
 
 void user_unif_init(unsigned int seed)
 {
+	seed = 3602842457U * seed + 105890386U; // undo initial scrambling
 	user_unif_init_selected(seed);
 	check_state_i = random_seed[0];
 }

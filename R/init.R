@@ -1,7 +1,7 @@
 .First.lib <- function(lib, pkg)
 {
 	library.dynam("rngwell19937", pkg, lib)
-	RNGkind("user")
+	RNGkind("user-supplied")
 }
 
 .Last.lib <- function(libpath) {
@@ -36,7 +36,7 @@ set.vector.seed <- function(seed)
 	stopifnot(all(seed >= 0))
 	stopifnot(all(seed < 2^32))
 	stopifnot(all(floor(seed) == seed))
-	RNGkind("user")
+	RNGkind("user-supplied")
 	tmp <- .C("init_vector_mrg32k5a",
 		length(seed),
 		as.double(seed),
