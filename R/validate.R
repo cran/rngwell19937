@@ -70,5 +70,6 @@ well19937.validate <- function()
 	r6 <- all(d61 == 0) & all(d62 == 0)
 	cat("initialization   vector, resolution 53:", result(r6),"\n")
 	if (!(r1 & r2 & r3 & r4 & r5 & r6)) stop("validation of rngwell19937 FAILED")
+	invisible(NULL)
 }
 

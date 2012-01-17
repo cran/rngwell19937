@@ -1,8 +1,8 @@
 Package: rngwell19937
 Title: WELL19937a random number generator implemented with 53 bit
         output
-Version: 0.5-3
-Date: 2009-08-16
+Version: 0.5-4
+Date: 2012-01-17
 Author: Petr Savicky <savicky@cs.cas.cz>
 Maintainer: Petr Savicky <savicky@cs.cas.cz>
 Description: A stand-alone package for the random number generator
@@ -19,6 +19,8 @@ Description: A stand-alone package for the random number generator
         Twister. All WELL generators with orders 512, 1024, 19937 and
         44497 can be found in randtoolbox package.
 License: file LICENSE
-Packaged: 2009-08-16 06:23:38 UTC; petr
 Repository: CRAN
-Date/Publication: 2009-08-16 15:15:09
+Date/Publication: 2012-01-17 15:11:20
+Packaged: 2012-01-17 13:05:45 UTC; petr
+NeedsCompilation: yes
+License_restricts_use: yes

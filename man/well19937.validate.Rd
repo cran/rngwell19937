@@ -4,7 +4,7 @@
 
 \description{
   The generator is run with a fixed seed and its output is compared to
-  precomputed values.
+  stored precomputed values.
 }
 
 \usage{
@@ -18,7 +18,8 @@
 }
 
 \value{
-  The function prints the result of the test. There is no output value.
+  The function prints the result of the test.
+  The output value is \code{NULL} invisibly.
 }
 
 \examples{

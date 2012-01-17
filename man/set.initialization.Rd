@@ -12,18 +12,20 @@
 }
 
 \arguments{
-  \item{initialization}{ The required initialization algorithm. Should
-  be "mrg32k5a" or "sfmt".}
+  \item{initialization}{ Character, either "mrg32k5a" or "sfmt". The required
+   initialization algorithm.}
 }
 
 \details{
   Initialization "mrg32k5a" uses the generator MRG32k5a by P. L'Ecuyer, see
   the citation below.
-  Initialization "sfmt" is the same as in SFMT generator by M. Matsumoto.
+  Initialization "sfmt" is the same as in SFMT generator by 
+  Mutsuo Saito (Hiroshima University) and
+  Makoto Matsumoto (Hiroshima University).
 }
 
 \value{
-  There is no output value.
+  \code{NULL} invisibly.
 }
 
 \references{

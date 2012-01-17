@@ -1,10 +1,10 @@
-.First.lib <- function(lib, pkg)
+.onLoad <- function(lib, pkg)
 {
 	library.dynam("rngwell19937", pkg, lib)
 	RNGkind("user-supplied")
 }
 
-.Last.lib <- function(libpath) {
+.onUnload <- function(libpath) {
 	RNGkind("default")
 	library.dynam.unload("rngwell19937", libpath)
 }
@@ -18,6 +18,7 @@ set.resolution <- function(resolution)
 	} else {
 		cat("supported resolutions are 53 and 32 bits\n")
 	}
+	invisible(NULL)
 }
 
 set.initialization <- function(initialization)
@@ -29,6 +30,7 @@ set.initialization <- function(initialization)
 	} else {
 		cat("supported initializations are \"mrg32k5a\" and \"sfmt\"\n")
 	}
+	invisible(NULL)
 }
 
 set.vector.seed <- function(seed)
@@ -44,5 +46,6 @@ set.vector.seed <- function(seed)
 		new.state = integer(625),
 		PACKAGE="rngwell19937")
 	.Random.seed[2:626] <<- tmp$new.state
+	invisible(NULL)
 }
 
