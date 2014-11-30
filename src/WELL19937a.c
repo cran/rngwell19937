@@ -6,9 +6,11 @@
 /*                 please contact P. L'Ecuyer at: lecuyer@iro.UMontreal.ca       */
 /* ***************************************************************************** */
 
-/****************************************************/
-/*  Modified by Petr Savicky, 2009                  */
-/****************************************************/
+/********************************************************************/
+/*  Modified by Petr Savicky, 2009                                  */
+/*  A copy of the original files is included in the source version  */
+/*  of the package in src/original_files directory.                 */
+/********************************************************************/
 
 #define W 32
 #define R 624

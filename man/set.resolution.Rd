@@ -3,8 +3,9 @@
 \title{Set the resolution of the output numbers}
 
 \description{
-  The resolution is the number of random bits in the output numbers.
   The function allows to choose between resolution 53 and 32 bits.
+  The resolution is the number of random bits in the numbers
+  produced by \code{runif()}.
 }
 
 \usage{
@@ -18,11 +19,12 @@
 \details{
   The new setting of the resolution is valid for the next calls to \code{runif()}.
 
-  Resolution 53 bits requires two iterations of the internal generator and
+  Generating a random number with the resolution 53 requires two iterations
+  of the internal 32 bit generator and
   their outputs are combined to a single number. The slow down of 53 bit
   resolution compared to 32 bit resolution is about 20 percent, since
   an R call to \code{runif()} performs also other actions besides calling
-  the generator itself and these actions are run only once.
+  the internal generator and these actions are run only once.
 }
 
 \value{

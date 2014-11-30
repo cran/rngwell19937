@@ -6,13 +6,16 @@
 \title{Random number generator of Mersenne-Twister type with resolution 53 bits}
 
 \description{
-  After loading the package, \code{set.seed()}, \code{runif()} and \code{.Random.seed}
-  refer to the generator WELL19937a by F. Panneton, Pierre L'Ecuyer and M. Matsumoto,
-  with a transformation to produce numbers in \code{(0,1)} with 53 or 32 random bits.
-  The default resolution is 53 bits and may be changed using \code{set.resolution()}.
+  After loading the package, the default random number generator in R
+  is replaced by the long period linear generator
+  WELL19937a by F. Panneton, P. L'Ecuyer and M. Matsumoto
+  with a transformation to produce numbers in \code{(0,1)}
+  with 53 (the default) or 32 random bits. In particular, the
+  functions \code{set.seed()}, \code{runif()} and the object
+  \code{.Random.seed} refer to WELL19937a.
 
-  If the package is unloaded by \code{detach("package:rngwell19937")}, the
-  default generator in R is restored.
+  A call of \code{detach("package:rngwell19937", unload=TRUE)}
+  restores the default random number generator in R.
 }
 
 \seealso{
